@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import StockContext from "./contexts/StockContext"
 
 const StockForm = () => {
 
