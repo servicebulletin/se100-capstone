@@ -1,5 +1,22 @@
-import { createContext } from 'react'
+import { createContext, useState, useContext } from "react"
 
-const StockContext = createContext()
+export const StockContext = createContext()
+export const StockContextProvider = StockContext.Provider
+export const useStockContext = () => useContext(StockContext)
 
-export default StockContext
+export const StockProvider = ({ children }) => {
+
+    const [stocks, setStocks] = useState([])
+
+    const addNewStock = (stock) => setStocks(
+        (prevState) => [...prevState, stock]
+    )
+
+    return (
+        <StockContextProvider 
+            value={{stocks, addNewStock}}
+        >
+            {children}
+        </StockContextProvider>
+    )
+}
