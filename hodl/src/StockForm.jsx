@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import AddNewStockComponent from "./AddNewStockComponent"
 
 const StockForm = () => {
@@ -9,22 +9,31 @@ const StockForm = () => {
 
     return (<div className='container'>
         <input 
-            value={ticker}
+            // value={ticker}
             placeholder="Stock symbol"
             className="ticker-input"
-            onChange={(event) => setTicker(event.target.value)}
+            onChange={(event) => {
+                setTicker(event.target.value)
+                console.log(ticker)
+            }}
         />
         <input 
-            value={quantity}
+            // value={quantity}
             placeholder="Quantity"
             className="ticker-input"
-            onChange={(event) => setQuantity(event.target.value)}
+            onChange={(event) => {
+                setQuantity(event.target.value)
+                console.log(quantity)
+            }}
         />
         <input 
-            value={price}
+            // value={price}
             placeholder="Purchase price"
             className="ticker-input"
-            onChange={(event) => setPrice(event.target.value)}
+            onChange={(event) => {
+                setPrice(event.target.value)
+                console.log(price)
+            }}
         />
         <AddNewStockComponent
             stockData={{
