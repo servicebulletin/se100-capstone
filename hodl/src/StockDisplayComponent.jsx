@@ -8,7 +8,7 @@ const StockDisplayComponent = () => {
     <>
       {stocksList?.map((item) => (
         <div>
-          <p key={item.ticker}>{JSON.stringify(item)}</p>
+          <p>{JSON.stringify(item.stockData)}</p>
         </div>
       ))}
     </>

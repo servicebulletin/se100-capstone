@@ -27,7 +27,7 @@ const StockForm = () => {
             onChange={(event) => setPrice(event.target.value)}
         />
         <AddNewStockComponent
-            newStock={{
+            stockData={{
                 ticker: ticker,
                 quantity: quantity,
                 price: price
