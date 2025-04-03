@@ -3,9 +3,9 @@ import AddNewStockComponent from "./AddNewStockComponent"
 
 const StockForm = () => {
 
-    const [ticker, setTicker] = useState()
-    const [quantity, setQuantity] = useState()
-    const [price, setPrice] = useState()
+    const [ticker, setTicker] = useState('')
+    const [quantity, setQuantity] = useState('')
+    const [price, setPrice] = useState('')
 
     return (<div className='container'>
         <input 
