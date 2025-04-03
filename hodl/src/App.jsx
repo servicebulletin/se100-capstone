@@ -1,4 +1,5 @@
 import StockForm from './StockForm'
+import StockContext from './contexts/StockContext'
 import './App.css'
 
 function App() {

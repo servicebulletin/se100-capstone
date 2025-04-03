@@ -26,6 +26,18 @@ const StockForm = () => {
             className="ticker-input"
             onChange={(event) => setPrice(event.target.value)}
         />
+        <button
+            type="button"
+            onClick={() => {
+                const newStock = {
+                    ticker: ticker,
+                    quantity: quantity,
+                    price: price
+                }
+            }}
+        >
+            Add Stock
+        </button>
 
     </div>)
 }
