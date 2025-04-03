@@ -4,7 +4,7 @@ export const StockContext = createContext()
 export const StockContextProvider = StockContext.Provider
 export const useStockContext = () => useContext(StockContext)
 
-export const StockProvider = ({ children }) => {
+const StockProvider = ({ children }) => {
 
     const [stocks, setStocks] = useState([])
 
@@ -20,3 +20,5 @@ export const StockProvider = ({ children }) => {
         </StockContextProvider>
     )
 }
+
+export default StockProvider

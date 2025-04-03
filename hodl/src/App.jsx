@@ -1,12 +1,15 @@
 import StockForm from './StockForm'
-import StockContext from './contexts/StockContext'
+import StockDisplayComponent from './StockDisplayComponent'
+import AddNewStockComponent from './AddNewStockComponent'
 import './App.css'
+import StockProvider from './contexts/StockContext'
 
 function App() {
   return (<>
-    <StockContext.Provider value={{}}>
-      <StockForm />
-    </StockContext.Provider>
+    <StockProvider>
+      <StockForm/>
+      <StockDisplayComponent/>
+    </StockProvider>
   </>) 
 }
 

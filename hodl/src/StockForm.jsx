@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from "react"
-import StockContext from "./contexts/StockContext"
+import { useState } from "react"
+import AddNewStockComponent from "./AddNewStockComponent"
 
 const StockForm = () => {
 
@@ -26,18 +26,13 @@ const StockForm = () => {
             className="ticker-input"
             onChange={(event) => setPrice(event.target.value)}
         />
-        <button
-            type="button"
-            onClick={() => {
-                const newStock = {
-                    ticker: ticker,
-                    quantity: quantity,
-                    price: price
-                }
+        <AddNewStockComponent
+            newStock={{
+                ticker: ticker,
+                quantity: quantity,
+                price: price
             }}
-        >
-            Add Stock
-        </button>
+        />
 
     </div>)
 }
