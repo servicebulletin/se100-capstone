@@ -2,13 +2,15 @@ import { useStockContext } from "./contexts/StockContext"
 
 const StockDisplayComponent = () => {
 
-  const {stocksList} = useStockContext()
+  const {stocks} = useStockContext()
+
+  console.log(stocks)
 
   return (
     <>
-      {stocksList?.map((item) => (
+      {stocks?.map((item) => (
         <div>
-          <p>{item.stockData.ticker}</p>
+          <p>{item.ticker}</p>
         </div>
       ))}
     </>

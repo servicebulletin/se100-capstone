@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useStockContext } from "./contexts/StockContext"
 import AddNewStockComponent from "./AddNewStockComponent"
 
 const StockForm = () => {
@@ -6,6 +7,11 @@ const StockForm = () => {
     const [ticker, setTicker] = useState('')
     const [quantity, setQuantity] = useState('')
     const [price, setPrice] = useState('')
+    const [stockData, setStockData] = useState({})
+
+    // console.log(ticker)
+    // console.log(quantity)
+    // console.log(price)
 
     return (<div className='container'>
         <input 
@@ -14,7 +20,6 @@ const StockForm = () => {
             className="ticker-input"
             onChange={(event) => {
                 setTicker(event.target.value)
-                console.log(ticker)
             }}
         />
         <input 
@@ -23,7 +28,6 @@ const StockForm = () => {
             className="ticker-input"
             onChange={(event) => {
                 setQuantity(event.target.value)
-                console.log(quantity)
             }}
         />
         <input 
@@ -32,17 +36,19 @@ const StockForm = () => {
             className="ticker-input"
             onChange={(event) => {
                 setPrice(event.target.value)
-                console.log(price)
             }}
         />
         <AddNewStockComponent
-            stockData={{
-                ticker: ticker,
-                quantity: quantity,
-                price: price
-            }}
+            // stockData={stockData}
+            ticker={ticker}
+            quantity={quantity}
+            price={price}
+            // stockData={{
+            //     ticker: ticker,
+            //     quantity: quantity,
+            //     price: price
+            // }}
         />
-
     </div>)
 }
 
