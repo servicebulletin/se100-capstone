@@ -38,41 +38,30 @@ const StockDisplayComponent = () => {
 
   return (
     <>
-      {stocks?.map((item, index) => (
-        <div key={index}>
-          <b>Symbol: {item.ticker}</b>
-          <p>Quantity: {item.quantity}</p>
-          <p>Purchase price: {item.price}</p>
-          <p>Current price: {prices[item.ticker] || "Loading..."}</p>
-        </div>
-      ))}
+      {stocks?.map((item, index) => {
+
+        const profitLoss =
+          prices[item.ticker] !== undefined && prices[item.ticker] !== null
+          ? (prices[item.ticker] - item.price) * item.quantity
+          : null
+
+        return (
+          <div key={index}>
+            <b>Symbol: {item.ticker}</b>
+            <p>Quantity: {item.quantity}</p>
+            <p>Purchase price: {item.price}</p>
+            <p>Current price: {prices[item.ticker] || "Loading..."}</p>
+            {profitLoss !== null && (
+              // <p style={profitLossStyle}>
+              <p>
+                Profit/Loss: {profitLoss.toFixed(2)}
+              </p>
+            )}
+          </div>
+        )})
+      }
     </>
   )
 }
 
 export default StockDisplayComponent
-
-
-
-// import { useStockContext } from "./contexts/StockContext"
-// import { useCallback } from "react"
-
-// const StockDisplayComponent = () => {
-
-//   const {stocks} = useStockContext()
-
-//   return (
-//     <>
-//       {stocks?.map((item, index) => (
-//         <div key={index}>
-//           <b>Symbol: {item.ticker}</b>
-//           <p>Quantity: {item.quantity}</p>
-//           <p>Purchase price: {item.price}</p>
-//           <p>Current price: {getStockPrice(item.ticker)}</p>
-//         </div>
-//       ))}
-//     </>
-//   )
-// }
-
-// export default StockDisplayComponent
