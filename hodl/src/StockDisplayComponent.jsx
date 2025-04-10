@@ -51,7 +51,7 @@ const StockDisplayComponent = () => {
         else if (profitLoss < 0) profitLossClass = "loss"
 
         return (
-          <div key={index}>
+          <div key={index} className="stock-item">
             <b>Symbol: {item.ticker}</b>
             <p>Quantity: {item.quantity}</p>
             <p>Purchase price: {item.price}</p>

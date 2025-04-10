@@ -2,7 +2,6 @@ import { useStockContext } from "./contexts/StockContext";
 
 const AddNewStockComponent = (props) => {
     const { stocks, addNewStock } = useStockContext()
-    // console.log(stocks)
 
     const onClick = () => {
         addNewStock({
