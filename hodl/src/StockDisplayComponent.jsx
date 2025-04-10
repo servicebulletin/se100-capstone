@@ -1,5 +1,6 @@
 import { useStockContext } from "./contexts/StockContext"
 import { useCallback, useEffect, useState } from "react"
+import "./App.css"
 
 const API_KEY = "1NVRDOZBL05519EX"
 
@@ -45,6 +46,10 @@ const StockDisplayComponent = () => {
           ? (prices[item.ticker] - item.price) * item.quantity
           : null
 
+        let profitLossClass = "neutral"
+        if (profitLoss > 0) profitLossClass = "profit"
+        else if (profitLoss < 0) profitLossClass = "loss"
+
         return (
           <div key={index}>
             <b>Symbol: {item.ticker}</b>
@@ -52,8 +57,7 @@ const StockDisplayComponent = () => {
             <p>Purchase price: {item.price}</p>
             <p>Current price: {prices[item.ticker] || "Loading..."}</p>
             {profitLoss !== null && (
-              // <p style={profitLossStyle}>
-              <p>
+              <p className={profitLossClass}>
                 Profit/Loss: {profitLoss.toFixed(2)}
               </p>
             )}
